@@ -1,0 +1,18 @@
+fastapi==0.103.2
+uvicorn[standard]==0.23.2
+
+# Pydantic versions that DO NOT require Rust:
+pydantic==2.4.2
+pydantic-core==2.10.1
+
+python-dotenv==1.0.0
+requests==2.31.0
+
+# LangChain stable for Python without Rust wheels
+langchain==0.0.333
+langchain-openai==0.0.2
+
+# Test tools
+pytest==7.4.3
+pytest-asyncio==0.21.1
+httpx==0.25.2
