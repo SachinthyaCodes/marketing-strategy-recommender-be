@@ -1,18 +1,22 @@
-fastapi==0.103.2
-uvicorn[standard]==0.23.2
+# Core FastAPI dependencies
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
 
-# Pydantic versions that DO NOT require Rust:
-pydantic==2.4.2
-pydantic-core==2.10.1
+# Data validation and serialization
+pydantic==2.5.0
+pydantic-settings==2.1.0
 
+# Environment and utilities
 python-dotenv==1.0.0
 requests==2.31.0
 
-# LangChain stable for Python without Rust wheels
-langchain==0.0.333
-langchain-openai==0.0.2
+# Text processing
+regex==2023.10.3
 
-# Test tools
+# Development and testing
 pytest==7.4.3
 pytest-asyncio==0.21.1
-httpx==0.25.2
+
+# LLM integration with Ollama
+ollama==0.1.7
