@@ -18,11 +18,16 @@ class Settings(BaseSettings):
     supabase_url: str
     supabase_service_role_key: str  # Service role key for backend operations
     
-    # Database Configuration
-    database_url: Optional[str] = None  # Optional direct database URL
-    
     # CORS Configuration
     cors_origins: list = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    
+    # External Services Configuration
+    strategy_generator_url: str = "http://localhost:8002"
+    trend_agent_url: str = "http://localhost:8001"
+    
+    # Strategy Generation Settings
+    enable_auto_strategy_generation: bool = True  # Generate strategy on form submit
+    strategy_relevance_threshold: float = 60.0
     
     class Config:
         # Get the project root directory

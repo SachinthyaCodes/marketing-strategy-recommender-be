@@ -146,6 +146,15 @@ class SubmissionResponse(BaseModel):
     status: str
     created_at: datetime
 
+class SubmissionWithStrategyResponse(BaseModel):
+    """Response model for form submission with generated strategy"""
+    id: str
+    message: str
+    status: str
+    created_at: datetime
+    strategy: Optional[Dict[str, Any]] = None
+    strategy_error: Optional[str] = None
+
 class SubmissionListResponse(BaseModel):
     """Response model for listing submissions"""
     submissions: List[FormSubmission]

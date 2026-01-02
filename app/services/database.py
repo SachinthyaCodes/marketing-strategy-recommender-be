@@ -2,10 +2,8 @@
 Supabase database service for form data storage
 """
 
-import asyncio
 from typing import List, Optional, Dict, Any
 from datetime import datetime
-import json
 import logging
 from supabase import create_client, Client
 from postgrest.exceptions import APIError
@@ -167,3 +165,32 @@ class DatabaseService:
         except Exception as e:
             logger.error(f"Error getting submissions count: {e}")
             return 0
+    
+    async def update_submission_strategy(self, submission_id: str, strategy_data: Dict[str, Any]) -> bool:
+        """
+        Update submission with generated strategy data
+        
+        Args:
+            submission_id: Submission ID
+            strategy_data: Generated strategy from strategy generator
+        
+        Returns:
+            True if update successful
+        """
+        try:
+            result = self.client.table(self.table_name).update({
+                "strategy_data": strategy_data,
+                "status": "completed",
+                "updated_at": datetime.utcnow().isoformat()
+            }).eq("id", submission_id).execute()
+            
+            if result.data and len(result.data) > 0:
+                logger.info(f"Strategy saved for submission {submission_id}")
+                return True
+            
+            logger.warning(f"No records updated for submission {submission_id}")
+            return False
+            
+        except Exception as e:
+            logger.error(f"Error updating strategy for submission {submission_id}: {e}")
+            raise

@@ -10,6 +10,7 @@ import logging
 import uvicorn
 
 from app.api.routes import router as api_router
+from app.api.auth_routes import router as auth_router
 from app.config.settings import get_settings
 from app.services.database import DatabaseService
 
@@ -30,13 +31,14 @@ async def lifespan(app: FastAPI):
     settings = get_settings()
     db_service = DatabaseService(settings)
     
-    # Test database connection
+    # Test database connection (non-blocking - warn but don't fail startup)
     try:
         await db_service.test_connection()
-        logger.info("Database connection successful")
+        logger.info("✅ Database connection successful")
     except Exception as e:
-        logger.error(f"Database connection failed: {e}")
-        raise
+        logger.warning(f"⚠️  Database connection failed: {e}")
+        logger.warning("⚠️  API will start but database operations will fail")
+        logger.warning("⚠️  Please check your .env file and Supabase credentials")
     
     yield
     
@@ -51,17 +53,23 @@ app = FastAPI(
     lifespan=lifespan
 )
 
-# Configure CORS
+# Configure CORS - Allow frontend to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://127.0.0.1:3000"],  # Frontend URLs
+    allow_origins=[
+        "http://localhost:3000",
+        "http://127.0.0.1:3000",
+        "http://localhost:3001",  # Alternative port
+    ],
     allow_credentials=True,
-    allow_methods=["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS", "PATCH"],
     allow_headers=["*"],
+    expose_headers=["*"],
 )
 
 # Include API routes
 app.include_router(api_router, prefix="/api/v1")
+app.include_router(auth_router)  # Auth routes have their own prefix
 
 @app.get("/")
 async def root():
