@@ -1,0 +1,258 @@
+{
+  "info": {
+    "name": "Marketing Strategy Recommender API",
+    "description": "Complete test collection for the AI-powered Marketing Strategy Recommender backend (Phases 1-6)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "marketing-strategy-api"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["health"]
+        },
+        "description": "Verify the API is running and healthy"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Algorithm Update",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Instagram algorithm prioritizes Reels engagement signals in 2026, with 67% higher reach for videos under 30 seconds.\",\n  \"source_type\": \"algorithm_update\",\n  \"platform\": \"instagram\",\n  \"industry\": \"digital_marketing\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Add a platform algorithm update to the knowledge base"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Case Study (F&B)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"A Malaysian SME bakery in Petaling Jaya increased walk-in traffic by 40% using Facebook local awareness ads targeting 5km radius with RM800 monthly budget. Campaign focused on weekday morning promotions.\",\n  \"source_type\": \"case_study\",\n  \"platform\": \"Facebook\",\n  \"industry\": \"Food & Beverage\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Real-world case study for Food & Beverage industry"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Research Finding",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"TikTok short-form videos under 21 seconds achieve 2.3x completion rate for retail brands targeting 18-34 age group in Southeast Asia. Hashtag strategy with 3-5 relevant tags performs best.\",\n  \"source_type\": \"research\",\n  \"platform\": \"TikTok\",\n  \"industry\": \"Retail\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Academic or industry research data"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Best Practice",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"WhatsApp Business broadcast lists with personalized morning greetings increase customer response rates by 54% for SMEs with under 500 contacts. Schedule messages between 8-9 AM for optimal open rates.\",\n  \"source_type\": \"best_practice\",\n  \"platform\": \"WhatsApp Business\",\n  \"industry\": null\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Platform best practice (no industry filter)"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Budget Guide",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"For Malaysian SMEs with RM1500-3000 monthly marketing budgets, optimal split is 40% content creation, 35% paid ads, 15% tools/software, 10% influencer partnerships. Organic reach should be prioritized before scaling paid campaigns.\",\n  \"source_type\": \"budget_guide\",\n  \"platform\": null,\n  \"industry\": \"General\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Budget allocation guidance"
+      },
+      "response": []
+    },
+    {
+      "name": "Add Knowledge - Sustainability Trend",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"content\": \"Malaysian consumers aged 25-40 show 73% preference for brands with visible sustainability initiatives. Instagram Stories showcasing eco-friendly practices generate 2.1x engagement compared to standard product posts in F&B sector.\",\n  \"source_type\": \"market_trend\",\n  \"platform\": \"Instagram\",\n  \"industry\": \"Food & Beverage\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/knowledge/add",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "knowledge", "add"]
+        },
+        "description": "Market trend data for sustainability"
+      },
+      "response": []
+    },
+    {
+      "name": "Generate Strategy - Urban Cafe (Full Profile)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_type\": \"Cafe\",\n  \"industry\": \"Food & Beverage\",\n  \"business_size\": \"micro\",\n  \"business_stage\": \"growth\",\n  \"location\": {\n    \"city\": \"Kuala Lumpur\",\n    \"district\": \"Bangsar\",\n    \"country\": \"Malaysia\"\n  },\n  \"products_services\": \"Specialty coffee, artisanal pastries, eco-friendly packaging\",\n  \"unique_selling_proposition\": \"Locally sourced beans, sustainable practices, community-focused\",\n  \"monthly_budget\": 1500,\n  \"has_marketing_team\": false,\n  \"content_creation_capacity\": [\"photos\", \"short_videos\"],\n  \"primary_goal\": \"increase_foot_traffic\",\n  \"secondary_goals\": [\"build_brand_awareness\", \"customer_retention\"],\n  \"target_revenue_increase\": 30,\n  \"timeline\": \"3_months\",\n  \"demographics\": {\n    \"age_range\": \"25_34\",\n    \"gender\": [\"all\"],\n    \"income_level\": \"middle_income\",\n    \"education_level\": \"university\"\n  },\n  \"target_location\": \"Urban professionals within 5km radius\",\n  \"interests\": [\"sustainability\", \"premium_coffee\", \"local_businesses\"],\n  \"buying_frequency\": \"weekly\",\n  \"preferred_platforms\": [\"Instagram\", \"Facebook\", \"WhatsApp Business\"],\n  \"current_platforms\": [\"Instagram\", \"Facebook\"],\n  \"platform_experience\": \"intermediate\",\n  \"challenges\": [\"limited_budget\", \"content_creation\", \"competition\"],\n  \"strengths\": [\"unique_product\", \"local_partnerships\"],\n  \"opportunities\": [\"sustainability_trend\", \"community_events\"],\n  \"competitor_behavior\": \"Competitors focus heavily on paid ads, less on organic community building\",\n  \"stock_availability\": \"consistent\",\n  \"seasonality\": [\n    {\n      \"category\": \"weather\",\n      \"subcategories\": [\"rainy_season_promotions\"]\n    },\n    {\n      \"category\": \"festivals\",\n      \"subcategories\": [\"ramadan_specials\", \"chinese_new_year\"]\n    }\n  ],\n  \"additional_notes\": \"New coffee shops opened nearby in the last 3 months. Need to differentiate through sustainability messaging.\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/strategy/generate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "strategy", "generate"]
+        },
+        "description": "Generate a complete marketing strategy for an urban cafe with full 8-section profile"
+      },
+      "response": []
+    },
+    {
+      "name": "Generate Strategy - Retail Store (Minimal Profile)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_type\": \"Retail Store\",\n  \"industry\": \"Fashion\",\n  \"business_size\": \"small\",\n  \"business_stage\": \"established\",\n  \"location\": {\n    \"city\": \"Penang\",\n    \"country\": \"Malaysia\"\n  },\n  \"products_services\": \"Modest fashion for young women\",\n  \"unique_selling_proposition\": \"Affordable modest wear with contemporary designs\",\n  \"monthly_budget\": 800,\n  \"has_marketing_team\": false,\n  \"content_creation_capacity\": [\"photos\"],\n  \"primary_goal\": \"increase_online_sales\",\n  \"demographics\": {\n    \"age_range\": \"18_24\",\n    \"gender\": [\"female\"],\n    \"income_level\": \"lower_middle_income\"\n  },\n  \"target_location\": \"Malaysia and Singapore\",\n  \"interests\": [\"fashion\", \"islamic_lifestyle\"],\n  \"preferred_platforms\": [\"Instagram\", \"TikTok\"],\n  \"current_platforms\": [\"Instagram\"],\n  \"challenges\": [\"limited_budget\", \"low_engagement\"],\n  \"strengths\": [\"unique_product\"]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/strategy/generate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "strategy", "generate"]
+        },
+        "description": "Generate strategy with minimal required fields"
+      },
+      "response": []
+    },
+    {
+      "name": "Generate Strategy - Service Business",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"business_type\": \"Professional Services\",\n  \"industry\": \"Digital Marketing Agency\",\n  \"business_size\": \"small\",\n  \"business_stage\": \"startup\",\n  \"location\": {\n    \"city\": \"Kuala Lumpur\",\n    \"district\": \"Mont Kiara\",\n    \"country\": \"Malaysia\"\n  },\n  \"products_services\": \"Social media management, content creation, paid ads for SMEs\",\n  \"unique_selling_proposition\": \"Data-driven strategies tailored for Malaysian SMEs with limited budgets\",\n  \"monthly_budget\": 2500,\n  \"has_marketing_team\": true,\n  \"content_creation_capacity\": [\"photos\", \"short_videos\", \"graphics\", \"articles\"],\n  \"primary_goal\": \"lead_generation\",\n  \"secondary_goals\": [\"build_brand_awareness\", \"thought_leadership\"],\n  \"target_revenue_increase\": 50,\n  \"timeline\": \"6_months\",\n  \"demographics\": {\n    \"age_range\": \"35_44\",\n    \"gender\": [\"all\"],\n    \"income_level\": \"upper_middle_income\",\n    \"education_level\": \"university\"\n  },\n  \"target_location\": \"SME owners in Klang Valley\",\n  \"interests\": [\"business_growth\", \"digital_transformation\"],\n  \"buying_frequency\": \"one_time_high_value\",\n  \"preferred_platforms\": [\"LinkedIn\", \"Facebook\", \"Instagram\"],\n  \"current_platforms\": [\"Facebook\", \"Instagram\"],\n  \"platform_experience\": \"advanced\",\n  \"challenges\": [\"lead_quality\", \"competition\"],\n  \"strengths\": [\"expertise\", \"case_studies\"],\n  \"opportunities\": [\"sme_digitalization_trend\"],\n  \"competitor_behavior\": \"Most competitors target large enterprises, leaving SME segment underserved\",\n  \"additional_notes\": \"Want to establish thought leadership through educational content\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/api/v1/strategy/generate",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8000",
+          "path": ["api", "v1", "strategy", "generate"]
+        },
+        "description": "B2B service business strategy generation"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:8000",
+      "type": "string"
+    }
+  ]
+}
