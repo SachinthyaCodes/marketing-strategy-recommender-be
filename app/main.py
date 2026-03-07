@@ -31,7 +31,7 @@ def create_app() -> FastAPI:
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],
-        allow_credentials=True,
+        allow_credentials=False,
         allow_methods=["*"],
         allow_headers=["*"],
     )
@@ -40,6 +40,15 @@ def create_app() -> FastAPI:
     app.include_router(knowledge_router)
     app.include_router(realtime_router)
     app.include_router(calendar_router)
+
+    @app.get("/", tags=["Health"])
+    async def root() -> dict:
+        """Root endpoint — used by HF Spaces health checks."""
+        return {
+            "status": "healthy",
+            "app": settings.APP_NAME,
+            "version": settings.APP_VERSION,
+        }
 
     @app.get("/health", tags=["Health"])
     async def health_check() -> dict:
