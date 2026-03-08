@@ -197,6 +197,12 @@ RETRIEVED KNOWLEDGE:
 
 INSTRUCTIONS:
 - Generate a structured marketing strategy in STRICT JSON format.
+- PLATFORM SELECTION RULES:
+  1. The SME's "Preferred Platforms" MUST form the core of "recommended_platforms" and receive the majority of the budget.
+  2. If the retrieved knowledge provides STRONG evidence that an additional platform (not in the preferred list) would significantly benefit this specific business, industry, and target audience, you MAY include it as an extra recommendation — but clearly justify why in the reasoning.
+  3. The majority of the budget (at least 70-80%) MUST go to the preferred platforms. Any additional platform should receive a small exploratory allocation.
+  4. In the "reasoning" field, clearly separate: (a) why each preferred platform is used, and (b) why any additional platform is suggested, citing specific retrieved knowledge.
+- The "budget_allocation" keys MUST correspond to the platforms listed in "recommended_platforms".
 - Use retrieved knowledge to justify decisions where applicable — cite specific articles or data points.
 - Align recommendations with the SME's budget, goals, and local market conditions.
 - In the "reasoning" field, provide a DETAILED explanation that:
@@ -205,6 +211,7 @@ INSTRUCTIONS:
   (c) References specific retrieved knowledge articles that support the decisions.
   (d) Identifies 1-2 potential risks and how the strategy mitigates them.
   (e) Suggests 2-3 concrete first-week action items the business owner should take.
+  (f) If an additional platform beyond the preferred list is recommended, explain the RAG-based evidence that supports this suggestion.
 - Provide a confidence_score between 0 and 1.
 - DO NOT include any text outside the JSON object.
 
